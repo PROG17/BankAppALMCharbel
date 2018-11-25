@@ -1,7 +1,31 @@
-﻿@{
+﻿@using BankRepo.Models
+@model List<CustomerViewModel>
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div>
-    <h1>Charbels Bank</h1>
+    <h1>Bank of Charbel</h1>
+    <br />
+    <h3>All customers</h3>
+    <br />
+    <ul>
+        @foreach (CustomerViewModel c in Model)
+        {
+            <li>
+                <p><font size="3">ID : @c.Customer.Id &nbsp; Name : @c.Customer.OrganizationName</font></p>
+                <ul>
+                    @foreach (Account account in c.Accounts.OrderBy(a => a.Id))
+                    {
+                        <li>
+                            <p>Account : @account.Id &nbsp; <strong>Balance : @account.Balance.ToString("C")</strong></p>
+                        </li>
+                    }
+
+                </ul>
+            </li>
+            <br />
+        }
+    </ul>
+
 </div>

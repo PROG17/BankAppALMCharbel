@@ -8,5 +8,13 @@ namespace BankRepo
         IReadOnlyList<Customer> Customers { get; }
         
         IReadOnlyList<Account> Accounts { get; }
+
+        List<Account> GetAccountsFromCustomer(int customerId);
+
+        Customer GetCustomerFromAccount(int accountId);
+
+        Customer GetCustomer(int customerId);
+
+        Account GetAccount(int accountId);
     }
 }

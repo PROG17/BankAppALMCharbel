@@ -11,12 +11,8 @@ namespace BankRepo
     {
         public BankDataRepository()
         {
-            string folder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
-                AppDomain.CurrentDomain.RelativeSearchPath ?? "");
 
-            string path = Path.Combine(folder, @"bankdata.txt");
-
-            var file = new StreamReader(path);
+            var file = new StreamReader("C:\\Users\\charb\\source\\repos\\BankAppALMCharbel\\BankRepo\\bankdata.txt");
 
             int customers = int.Parse(file.ReadLine());
             for (var i = 0; i < customers; i++)
