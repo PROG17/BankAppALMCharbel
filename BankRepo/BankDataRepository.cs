@@ -11,19 +11,21 @@ namespace BankRepo
     {
         public BankDataRepository()
         {
+            string folder = AppContext.BaseDirectory;
 
-            var file = new StreamReader("C:\\Users\\charb\\source\\repos\\BankAppALMCharbel\\BankRepo\\bankdata.txt");
-
-            int customers = int.Parse(file.ReadLine());
-            for (var i = 0; i < customers; i++)
+            using (var file = new StreamReader(Path.Combine(folder, @"bankdata.txt")))
             {
-                _customers.Add(DeserializeCustomer(file.ReadLine()));
-            }
+                int customers = int.Parse(file.ReadLine());
+                for (var i = 0; i < customers; i++)
+                {
+                    _customers.Add(DeserializeCustomer(file.ReadLine()));
+                }
 
-            int accounts = int.Parse(file.ReadLine());
-            for (var i = 0; i < accounts; i++)
-            {
-                _accounts.Add(DeserializeAccount(file.ReadLine()));
+                int accounts = int.Parse(file.ReadLine());
+                for (var i = 0; i < accounts; i++)
+                {
+                    _accounts.Add(DeserializeAccount(file.ReadLine()));
+                }
             }
         }
 
