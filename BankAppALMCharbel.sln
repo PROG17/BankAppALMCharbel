@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAppALMCharbel", "BankAppALMCharbel\BankAppALMCharbel.csproj", "{77D7D535-A960-42E0-9125-9FB2FAC22AB8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankAppALMCharbel", "BankAppALMCharbel\BankAppALMCharbel.csproj", "{77D7D535-A960-42E0-9125-9FB2FAC22AB8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAppALMCharbel.Tests", "BankAppALMCharbel.Tests\BankAppALMCharbel.Tests.csproj", "{0CCCD272-8D0B-4E98-85A7-83330BA203EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankRepo", "BankRepo\BankRepo.csproj", "{C83F5F1D-2AAA-4390-873A-8EF547872939}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{0CCCD272-8D0B-4E98-85A7-83330BA203EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CCCD272-8D0B-4E98-85A7-83330BA203EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0CCCD272-8D0B-4E98-85A7-83330BA203EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C83F5F1D-2AAA-4390-873A-8EF547872939}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C83F5F1D-2AAA-4390-873A-8EF547872939}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C83F5F1D-2AAA-4390-873A-8EF547872939}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C83F5F1D-2AAA-4390-873A-8EF547872939}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
