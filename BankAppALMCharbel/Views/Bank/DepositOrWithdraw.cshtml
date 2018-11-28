@@ -1,0 +1,35 @@
+﻿@using System.Globalization
+@using BankRepo
+@inject IBankRepository BankRepository
+@model DepositOrWithdrawViewModel
+@{
+    ViewData["Title"] = "DepositOrWithdraw";
+}
+
+<h2>Deposit/Withdraw</h2>
+
+@if (ViewData["DepositOrWithdrawSucces"] is true)
+{
+    @if (Model.Submit == DepositOrWithdrawViewModel.SubmitType.Deposit)
+    {
+        <h3>Deposit done!</h3>
+    }
+    else
+    {
+        <h3>Withdrawl done!</h3>
+    }
+}
+
+<form method="post" asp-action="DepositOrWithdraw">
+    <label asp-for="AccountId"></label>
+    <input asp-for="AccountId" />
+    <span class="Validation" asp-validation-for="AccountId"></span>
+
+    <label asp-for="Amount"></label>
+    <input asp-for="Amount" />
+    <span class="Validation" asp-validation-for="Amount"></span>
+
+    <input asp-for="Submit" type="submit" value="@DepositOrWithdrawViewModel.SubmitType.Deposit" />
+    <input asp-for="Submit" type="submit" value="@DepositOrWithdrawViewModel.SubmitType.Withdraw" />
+
+</form>
