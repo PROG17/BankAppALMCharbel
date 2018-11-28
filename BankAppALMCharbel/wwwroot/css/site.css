@@ -33,3 +33,9 @@
         display: none;
     }
 }
+
+.Validation {
+    color: #C1372A !important;
+    display: block;
+    font-weight: normal !important;
+}
