@@ -15,7 +15,7 @@
     <input asp-for="AccountFrom" />
     <span class="Validation" asp-validation-for="AccountFrom"></span>
 
-    <label asp-for="AccountFrom"></label>
+    <label asp-for="AccountTo"></label>
     <input asp-for="AccountTo" />
     <span class="Validation" asp-validation-for="AccountTo"></span>
 
@@ -26,3 +26,8 @@
     <button type="submit">Transfer</button>
 
 </form>
+
+@section Scripts
+{
+    @Html.Partial("_ValidationScriptsPartial")
+}

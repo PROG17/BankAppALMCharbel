@@ -78,9 +78,49 @@ namespace BankAppALMCharbel.Controllers
             return Json(true);
         }
 
+        [HttpGet]
         public IActionResult Transfer()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Transfer(TransferViewModel model)
+        {
+            return View();
+        }
+
+        public IActionResult ValidateTransferAccountFrom(TransferViewModel model)
+        {
+            Account source = _bankRepository.GetAccount(model.AccountFrom);
+
+            if (source is null)
+                return Json($"Account #{model.AccountFrom} does not exist.");
+
+            return Json(true);
+        }
+
+        public IActionResult ValidateTransferAccountTo(TransferViewModel model)
+        {
+            Account target = _bankRepository.GetAccount(model.AccountTo);
+
+            if (target is null)
+                return Json($"Account #{model.AccountTo} does not exist.");
+
+            if (model.AccountTo == model.AccountFrom)
+                return Json("Account cannot transfer to itself.");
+
+            return Json(true);
+        }
+
+        public IActionResult ValidateTransferAmount(TransferViewModel model)
+        {
+            Account source = _bankRepository.GetAccount(model.AccountFrom);
+
+            if (model.Amount > source?.Balance)
+                return Json("Insufficient funds in source account.");
+
+            return Json(true);
         }
     }
 }
