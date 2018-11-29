@@ -4,6 +4,7 @@ using BankRepo.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BankAppALMCharbel.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using BankAppALMCharbel.Models;
 
@@ -87,7 +88,11 @@ namespace BankAppALMCharbel.Controllers
         [HttpPost]
         public IActionResult Transfer(TransferViewModel model)
         {
-            return View();
+            ModelState.ValidateRemote(nameof(model.AccountTo), ValidateTransferAccountTo(model));
+            ModelState.ValidateRemote(nameof(model.AccountFrom), ValidateTransferAccountFrom(model));
+            ModelState.ValidateRemote(nameof(model.Amount), ValidateTransferAmount(model));
+
+            return View(model);
         }
 
         public IActionResult ValidateTransferAccountFrom(TransferViewModel model)
