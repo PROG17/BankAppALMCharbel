@@ -25,5 +25,10 @@ namespace BankRepo.Models
 
             Balance -= amount;
         }
+
+        public void Transfer(decimal amount, Account recipient)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
