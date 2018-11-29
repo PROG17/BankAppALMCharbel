@@ -17,4 +17,10 @@
     <ProjectReference Include="..\BankRepo\BankRepo.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Views\Bank\Transfer.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+  </ItemGroup>
+
 </Project>

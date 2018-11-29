@@ -53,5 +53,85 @@ namespace BankAppALMCharbel.Tests
         {
             account.Withdraw(10);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void TransferToNull()
+        {
+            // Act
+            account.Transfer(10, null);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void TransferToSelf()
+        {
+            // Act
+            account.Transfer(10, account);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void TransferZero()
+        {
+            // Arrange
+            var recipient = new Account();
+
+            // Act
+            account.Transfer(0, recipient);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void TransferNegative()
+        {
+            // Arrange
+            var recipient = new Account();
+
+            // Act
+            account.Transfer(-1_000, recipient);
+        }
+
+        [TestMethod]
+        public void TransferWithVeryEnough()
+        {
+            // Arrange
+            var recipient = new Account();
+            account.Balance = 10_000_000;
+
+            // Act
+            account.Transfer(10, recipient);
+
+            // Assert
+            Assert.AreEqual(9_999_990, account.Balance);
+            Assert.AreEqual(10, recipient.Balance);
+        }
+
+        [TestMethod]
+        public void TransferWithJustEnough()
+        {
+            // Arrange
+            var recipient = new Account();
+            account.Balance = 10;
+
+            // Act
+            account.Transfer(10, recipient);
+
+            // Assert
+            Assert.AreEqual(0, account.Balance);
+            Assert.AreEqual(10, recipient.Balance);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void TransferWithNotEnough()
+        {
+            // Arrange
+            var recipient = new Account();
+            account.Balance = 10;
+
+            // Act
+            account.Transfer(10_000_000, recipient);
+        }
     }
 }
