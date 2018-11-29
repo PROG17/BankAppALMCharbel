@@ -92,6 +92,16 @@ namespace BankAppALMCharbel.Controllers
             ModelState.ValidateRemote(nameof(model.AccountFrom), ValidateTransferAccountFrom(model));
             ModelState.ValidateRemote(nameof(model.Amount), ValidateTransferAmount(model));
 
+            if (ModelState.IsValid)
+            {
+                Account source = _bankRepository.GetAccount(model.AccountFrom);
+                Account recipient = _bankRepository.GetAccount(model.AccountTo);
+
+                source.Transfer(model.Amount, recipient);
+
+                ViewData["TransferSuccess"] = true;
+            }
+
             return View(model);
         }
 
