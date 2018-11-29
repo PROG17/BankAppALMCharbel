@@ -77,5 +77,10 @@ namespace BankAppALMCharbel.Controllers
 
             return Json(true);
         }
+
+        public IActionResult Transfer()
+        {
+            return View();
+        }
     }
 }
