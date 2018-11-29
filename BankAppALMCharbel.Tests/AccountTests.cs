@@ -82,6 +82,17 @@ namespace BankAppALMCharbel.Tests
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void TransferNegative()
+        {
+            // Arrange
+            var recipient = new Account();
+
+            // Act
+            account.Transfer(-1_000, recipient);
+        }
+
+        [TestMethod]
         public void TransferWithVeryEnough()
         {
             // Arrange
@@ -92,7 +103,7 @@ namespace BankAppALMCharbel.Tests
             account.Transfer(10, recipient);
 
             // Assert
-            Assert.AreEqual(9_999_980, account.Balance);
+            Assert.AreEqual(9_999_990, account.Balance);
             Assert.AreEqual(10, recipient.Balance);
         }
 
