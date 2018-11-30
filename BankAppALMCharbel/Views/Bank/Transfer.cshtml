@@ -1,0 +1,33 @@
+﻿@model TransferViewModel
+@{
+    ViewData["Title"] = "DepositOrWithdraw";
+}
+
+<h2>Transfer</h2>
+
+@if (ViewData["TransferSuccess"] is true)
+{
+    <h3>Transfer complete!</h3>
+}
+
+<form method="post" asp-action="Transfer">
+    <label asp-for="AccountFrom"></label>
+    <input asp-for="AccountFrom" />
+    <span class="Validation" asp-validation-for="AccountFrom"></span>
+
+    <label asp-for="AccountTo"></label>
+    <input asp-for="AccountTo" />
+    <span class="Validation" asp-validation-for="AccountTo"></span>
+
+    <label asp-for="Amount"></label>
+    <input asp-for="Amount" />
+    <span class="Validation" asp-validation-for="Amount"></span>
+
+    <button type="submit">Transfer</button>
+
+</form>
+
+@section Scripts
+{
+    @Html.Partial("_ValidationScriptsPartial")
+}
