@@ -19,7 +19,7 @@ namespace BankAppALMCharbel.Controllers
             _bankRepository = bankRepository;
         }
 
-        //Testar CI
+        //Testar CI igen
         public IActionResult DepositOrWithdraw(int? id)
         {
             return View(new DepositOrWithdrawViewModel());
